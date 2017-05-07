@@ -1,0 +1,2 @@
+# pscube
+PureScript Cube Visualizer
