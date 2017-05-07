@@ -10,7 +10,7 @@ import Data.Foldable (fold)
 import Control.Monad.Eff (Eff)
 
 import Graphics.Drawing (scale, translate, shadowBlur, black, shadowColor,
-                         shadow, render, rotate, closed, outlineColor, outlined, path)
+                         shadow, render, rotate, closed, outlineColor, outlined, path, filled, fillColor, rgb)
 import Graphics.Canvas (CANVAS, getCanvasElementById, getContext2D)
 import Partial.Unsafe (unsafePartial)
 
@@ -23,21 +23,10 @@ main :: Eff (canvas :: CANVAS) Unit
 main = do
   mcanvas <- getCanvasElementById "canvas"
   let canvas = unsafePartial (fromJust mcanvas)
-  ctx <- getContext2D canvas
-
-  render ctx $
-      translate 400.0 200.0 $
-          go 5
-
-  where
-  s = 0.375
-
-  go 0 = mempty
-  go n =
-    let dr = scale s s (go (n - 1))
-    in outlined (outlineColor (sample magma (1.0 - toNumber (n - 1) / 5.0))) cube
-
-  cube = path [{ x: 0.0 * 100.0, y: 0.0 * 100.0  }, 
+  ctx <- getContext2D canvas  
+  
+  render ctx $ translate 400.0 200.0 $ outlined (outlineColor $ rgb 0 255 0) $ path 
+              [{ x: 0.0 * 100.0, y: 0.0 * 100.0  }, 
                { x: 1.0 * 100.0, y: 0.0 * 100.0  },
                { x: 1.0 * 100.0, y: 1.0 * 100.0  },
                { x: 0.0 * 100.0, y: 1.0 * 100.0  },
