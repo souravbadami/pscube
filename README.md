@@ -1,2 +1,2 @@
-# pscube
+# PsCube
 PureScript Cube Visualizer
