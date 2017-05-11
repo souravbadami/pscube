@@ -13,6 +13,10 @@
     "purescript-integers": "^3.0.0",
     "purescript-colors": "^3.0.0",
     "purescript-signal": "^9.0.0",
-    "purescript-drawing": "^3.0.0"
+    "purescript-drawing": "^3.0.0",
+    "purescript-pairs": "^5.0.0",
+    "purescript-foldable-traversable": "^3.0.0",
+    "purescript-arrays": "^4.0.1",
+    "purescript-isometric": "^3.0.0"
   }
 }

@@ -42,3 +42,9 @@ main = do
                { x: 0.5 * 100.0, y: -0.5 * 100.0  },
                { x: 0.5 * 100.0, y: 0.5 * 100.0  },
                { x: 1.5 * 100.0, y: 0.5 * 100.0  }]
+
+cube3D :: Array (Pair { x :: Number, y :: Number, z :: Number })
+cube3D = do
+    x <- [-0.5, 0.5]
+    y <- [-0.5, 0.5]
+    pure $ Pair { x, y, z: -0.5 } { x, y, z: 0.5 }
